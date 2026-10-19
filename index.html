@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>МОРЯК — Админ панель</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef4f8;
+      color: #16364b;
+      margin: 0;
+    }
+    header {
+      background: #123b56;
+      color: white;
+      padding: 24px;
+      text-align: center;
+    }
+    main {
+      max-width: 600px;
+      margin: 24px auto;
+      padding: 16px;
+    }
+    section {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+    }
+    button {
+      padding: 12px;
+      background: #087e8b;
+      color: white;
+      border: 0;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+    .item {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .delete { background: #b83232; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>⚓ МОРЯК</h1>
+    <p>Админ панель — меню башкаруу</p>
+  </header>
+  <main>
+    <section>
+      <h2>Жаңы тамак кошуу</h2>
+      <input id="food" placeholder="Тамактын аты">
+      <input id="price" type="number" min="1" placeholder="Баасы (сом)">
+      <button onclick="addFood()">Менюга кошуу</button>
+    </section>
+    <section>
+      <h2>Меню</h2>
+      <div id="menu"></div>
+    </section>
+  </main>
+  <script>
+    let foods = JSON.parse(localStorage.getItem("moryakFoods") || "[]");
+
+    function render() {
+      const menu = document.getElementById("menu");
+      menu.replaceChildren();
+
+      if (!foods.length) {
+        menu.textContent = "Меню азырынча бош.";
+      }
+
+      foods.forEach((food, i) => {
+        const row = document.createElement("div");
+        row.className = "item";
+        const label = document.createElement("span");
+        label.textContent = food.name + " — " + food.price + " сом";
+        const del = document.createElement("button");
+        del.className = "delete";
+        del.textContent = "Өчүрүү";
+        del.onclick = () => {
+          foods.splice(i, 1);
+          save();
+        };
+        row.append(label, del);
+        menu.append(row);
+      });
+    }
+
+    function save() {
+      localStorage.setItem("moryakFoods", JSON.stringify(foods));
+      render();
+    }
+
+    function addFood() {
+      const name = document.getElementById("food").value.trim();
+      const price = Number(document.getElementById("price").value);
+      if (!name || !Number.isFinite(price) || price <= 0) {
+        alert("Тамактын атын жана туура баасын жаз!");
+        return;
+      }
+      foods.push({ name, price });
+      save();
+      document.getElementById("food").value = "";
+      document.getElementById("price").value = "";
+    }
+
+    render();
+  </script>
+</body>
+</html>
