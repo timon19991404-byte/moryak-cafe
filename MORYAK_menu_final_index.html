@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ky">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#062b4b">
+  <meta name="description" content="МОРЯК кафеси — форель, суши, шаурма, пицца жана ысык тамактар. Онлайн заказ бериңиз.">
+  <title>МОРЯК КАФЕСИ — Онлайн заказ</title>
+  <style>
+    :root{--navy:#062b4b;--navy2:#0b426a;--gold:#f7b83d;--cream:#fffaf1;--ink:#18324a;--muted:#6b7b89;--line:#e8edf1;--green:#17834c}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f7f9fb;color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    button,input,textarea,select{font:inherit}button{cursor:pointer}.wrap{width:min(1180px,92%);margin:auto}
+    header{background:var(--navy);color:white;position:sticky;top:0;z-index:20;box-shadow:0 5px 20px #001b3030}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}.brand{display:flex;align-items:center;gap:12px;color:white;text-decoration:none;font-weight:900;font-size:27px;letter-spacing:1px}.brandmark{width:47px;height:47px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:25px}.brand small{display:block;font-size:10px;letter-spacing:5px;color:var(--gold);font-weight:700;margin-top:-3px}
+    nav{display:flex;gap:22px;align-items:center}nav a{color:#eef6fb;text-decoration:none;font-size:14px;font-weight:650}nav a:hover{color:var(--gold)}
+    .head-actions{display:flex;align-items:center;gap:10px}.phone{color:white;text-decoration:none;font-weight:700;white-space:nowrap;font-size:14px}.btn{border:0;border-radius:999px;padding:13px 20px;background:var(--gold);color:#092d4c;font-weight:850;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.04)}.btn.dark{background:var(--navy);color:white}.btn.outline{background:transparent;border:1px solid #d4e0e9;color:var(--navy)}
+    .hero{background:radial-gradient(ellipse at 85% 20%,#175477 0%,#0b426a 25%,#062b4b 65%);min-height:475px;color:white;display:flex;align-items:center}.hero-content{max-width:620px;padding:62px 0}.eyebrow{color:var(--gold);font-weight:850;text-transform:uppercase;letter-spacing:2px;font-size:12px}.hero h1{font-size:clamp(42px,6vw,72px);line-height:1.02;margin:14px 0}.hero h1 span{color:var(--gold)}.hero p{font-size:18px;line-height:1.65;color:#e4edf5;max-width:520px}.hero-buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:27px}.hero .outline{color:white;border-color:#ffffff70}
+    .benefits{background:white;border-bottom:1px solid var(--line)}.benefit-row{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;padding:22px 0}.benefit{display:flex;align-items:center;gap:12px}.benefit .ico{font-size:27px;color:var(--navy)}.benefit strong{display:block;font-size:14px}.benefit small{color:var(--muted);font-size:12px}
+    section{padding:58px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:24px}.section-head h2{font-size:clamp(28px,4vw,38px);margin:7px 0 0;color:var(--navy)}.section-head p{margin:8px 0 0;color:var(--muted)}.categories{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 24px}.cat{border:1px solid #dbe4eb;background:white;color:var(--navy);padding:10px 16px;border-radius:99px;font-weight:750}.cat.active,.cat:hover{background:var(--navy);color:white;border-color:var(--navy)}
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.food-card{background:white;border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:0 7px 24px #092b4710;display:flex;flex-direction:column}.food-img{height:180px;background:#e7eef3;position:relative;overflow:hidden}.food-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}.food-card:hover .food-img img{transform:scale(1.04)}.tag{position:absolute;left:13px;top:13px;background:var(--gold);color:var(--navy);font-size:11px;font-weight:900;padding:6px 10px;border-radius:99px}.food-body{padding:19px;display:flex;flex-direction:column;flex:1}.food-title-row{display:flex;justify-content:space-between;gap:10px;align-items:start}.food-title-row h3{font-size:18px;margin:0;color:var(--navy)}.price{font-weight:900;color:var(--navy);white-space:nowrap}.desc{color:var(--muted);font-size:13px;line-height:1.5;margin:9px 0 15px}.add-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto}.add{background:#eaf2f7;border:0;color:var(--navy);font-weight:850;border-radius:10px;padding:10px 14px}.add:hover{background:var(--gold)}.weight{font-size:12px;color:var(--muted)}
+    .about{background:#edf4f8}.about-grid{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;max-width:850px;margin:0 auto}.about-photo{display:none}.about h2{font-size:clamp(28px,4vw,39px);line-height:1.15;color:var(--navy);margin:10px 0 18px}.about p{line-height:1.8;color:#526879}.about-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0}.about-list span{font-weight:750;font-size:14px}
+    .order-section{background:white}.order-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;align-items:start}.order-info{background:var(--navy);color:white;border-radius:20px;padding:28px}.order-info h3{font-size:24px;margin-top:0}.order-info p{color:#d4e2ed;line-height:1.7}.order-info a{color:var(--gold);font-weight:800}.form-card{border:1px solid var(--line);border-radius:20px;padding:25px;background:#fff}.form-card h3{margin:0 0 8px;color:var(--navy);font-size:24px}.form-card>p{color:var(--muted);font-size:14px}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px;margin:12px 0}.field label{font-size:13px;font-weight:800}.field input,.field textarea,.field select{width:100%;padding:12px 13px;border:1px solid #d8e1e8;border-radius:10px;outline:none;background:#fbfcfd}.field input:focus,.field textarea:focus,.field select:focus{border-color:#5c8eaf;box-shadow:0 0 0 3px #5c8eaf20}.field textarea{min-height:82px;resize:vertical}.cart-list{display:flex;flex-direction:column;gap:10px;margin:16px 0}.cart-empty{padding:18px;background:#f5f8fa;border-radius:12px;color:var(--muted);font-size:14px}.cart-item{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}.cart-item strong{display:block;font-size:14px}.cart-item small{color:var(--muted)}.qty{display:flex;align-items:center;gap:8px}.qty button{width:28px;height:28px;border:0;border-radius:8px;background:#e9f1f6;color:var(--navy);font-weight:900}.total{display:flex;justify-content:space-between;font-size:19px;font-weight:900;color:var(--navy);padding:15px 0;border-top:1px solid var(--line)}.form-actions{display:flex;gap:10px;flex-wrap:wrap}.form-actions .btn{flex:1}
+    footer{background:#031f37;color:white;padding:32px 0}.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot p{margin:6px 0;color:#c8d7e3;font-size:13px}.foot a{color:var(--gold);text-decoration:none}.copyright{font-size:12px;color:#8fa7b9;margin-top:22px;border-top:1px solid #ffffff1c;padding-top:17px}
+    .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#102f48;color:white;padding:13px 18px;border-radius:12px;box-shadow:0 10px 30px #0003;z-index:40;display:none;max-width:90%;text-align:center}
+    @media(max-width:900px){nav{display:none}.menu-grid{grid-template-columns:repeat(2,1fr)}.benefit-row{grid-template-columns:repeat(2,1fr)}.order-grid{grid-template-columns:1fr}.head-actions .phone{display:none}}
+    @media(max-width:600px){.top{min-height:66px}.brand{font-size:22px}.brandmark{width:39px;height:39px}.head-actions .btn{padding:10px 13px;font-size:13px}.hero{min-height:420px}.hero-content{padding:48px 0}.hero p{font-size:16px}.benefit-row{gap:18px}.benefit{align-items:flex-start}.benefit .ico{font-size:22px}.menu-grid{grid-template-columns:1fr 1fr;gap:11px}.food-img{height:125px}.food-body{padding:12px}.food-title-row{display:block}.food-title-row h3{font-size:15px;margin-bottom:5px}.price{font-size:14px}.desc{font-size:12px;margin:7px 0 11px}.add{padding:9px 10px;font-size:12px}.weight{font-size:11px}.section-head{align-items:start;flex-direction:column}.about-grid{grid-template-columns:1fr;gap:24px}.about-photo{display:none}.field-grid{grid-template-columns:1fr;gap:0}.form-card,.order-info{padding:19px}.form-actions{flex-direction:column}.foot{align-items:flex-start}}
+  </style>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="МОРЯК">
+  <script>if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) { window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(() => {})); }</script>
+</head>
+<body>
+<header>
+  <div class="wrap top">
+    <a class="brand" href="#home" aria-label="МОРЯК башкы бет"><span class="brandmark">⚓</span><span>МОРЯК<small>КАФЕСИ</small></span></a>
+    <nav><a href="#home">Башкы бет</a><a href="#menu">Меню</a><a href="#about">Биз жөнүндө</a><a href="#order">Заказ берүү</a><a href="#contact">Байланыш</a></nav>
+    <div class="head-actions"><a class="phone" href="tel:+996506991404">☎ +996 506 991 404</a><a class="btn" href="#order">Заказ берүү <span id="cart-count">0</span></a></div>
+  </div>
+</header>
+<main>
+  <section class="hero" id="home">
+    <div class="wrap"><div class="hero-content">
+      <div class="eyebrow">Даамдуу тамак • Жылуу маанай</div>
+      <h1>Жашоо даамдуу,<br><span>форель менен!</span></h1>
+      <p>«МОРЯК» кафесинде жаңы даярдалган форель, сүйүктүү тез татымдар жана ысык тамактар. Өзүңүзгө жакканын тандап, онлайн заказ бериңиз.</p>
+      <div class="hero-buttons"><a class="btn" href="#menu">🍽 Менюну көрүү</a><a class="btn outline" href="https://wa.me/996506991404" target="_blank" rel="noopener">WhatsApp аркылуу жазуу</a></div>
+    </div></div>
+  </section>
+  <div class="benefits"><div class="wrap benefit-row">
+    <div class="benefit"><span class="ico">🐟</span><div><strong>Форель — биздин өзгөчөлүк</strong><small>Мангалда жана көмөчтө</small></div></div>
+    <div class="benefit"><span class="ico">🍲</span><div><strong>Жаңы даярдалат</strong><small>Заказдан кийин бышырабыз</small></div></div>
+    <div class="benefit"><span class="ico">🏡</span><div><strong>Жайлуу атмосфера</strong><small>Үй-бүлө менен келүүгө ылайык</small></div></div>
+    <div class="benefit"><span class="ico">💛</span><div><strong>Айылга ылайык баалар</strong><small>Даамдуу жана жеткиликтүү</small></div></div>
+  </div></div>
+
+  <section id="menu"><div class="wrap">
+    <div class="section-head"><div><div class="eyebrow">Биздин меню</div><h2>Сүйүктүү даамыңды танда</h2><p>Форель, суши, пицца жана башка сүйүктүү даамдарды тандаңыз. Азыр меню сүрөттөрсүз даярдалды — кафе ишке киргенде өзүңүз тарткан тамактардын сүрөттөрүн кошобуз. Форельдин баасы чийки салмак боюнча эсептелет. Акыркы сумма таразадагы так салмак менен ырасталат.</p></div><a class="btn dark" href="#order">🛒 Себетке өтүү</a></div>
+    <div class="categories" id="categories">
+      <button class="cat active" data-cat="Баары">Баары</button><button class="cat" data-cat="Форель">🐟 Форель</button><button class="cat" data-cat="Суши">🍣 Суши</button><button class="cat" data-cat="Шаурма">🌯 Шаурма</button><button class="cat" data-cat="Бургер">🍔 Бургер</button><button class="cat" data-cat="Пицца">🍕 Пицца</button><button class="cat" data-cat="Шорпо">🍲 Шорпо</button><button class="cat" data-cat="Сет">⚓ Сеттер</button><button class="cat" data-cat="Гарнир">🥔 Гарнир</button><button class="cat" data-cat="Салат">🥗 Салат</button><button class="cat" data-cat="Суусундук">🥤 Суусундук</button>
+    </div>
+    <p style="margin:0 0 18px;color:#6b7b89;font-size:13px">Менюдагы баалар сом менен көрсөтүлгөн. Форельдин акыркы баасы таразадагы так салмак боюнча эсептелет.</p><div class="menu-grid" id="menu-grid"></div>
+  </div></section>
+
+  <section class="about" id="about"><div class="wrap about-grid">
+    
+    <div><div class="eyebrow">Биз жөнүндө</div><h2>«МОРЯК» — форель менен даамдуу эс алуу</h2>
+      <p>Биздин максат — ар бир конокко даамдуу тамак, таза тейлөө жана жылуу маанай тартуулоо. Мангалдагы форельден тартып пицца, шаурма жана ысык шорполорго чейин — ар бир заказ көңүл буруу менен даярдалат.</p>
+      <div class="about-list"><span>✓ Даамдуу тамактар</span><span>✓ Жылуу тейлөө</span><span>✓ Үй-бүлөгө ылайык</span><span>✓ Заказ оңой берилет</span></div>
+      <a class="btn dark" href="#order">Заказ берүү</a>
+    </div>
+  </div></section>
+
+  <section class="order-section" id="order"><div class="wrap">
+    <div class="section-head"><div><div class="eyebrow">Онлайн заказ</div><h2>Заказыңызды даярдайлы</h2><p>Тандалган тамактар WhatsApp аркылуу бизге жөнөтүлөт.</p></div></div>
+    <div class="order-grid">
+      <aside class="order-info" id="contact"><h3>Байланыш</h3><p>Заказ боюнча суроолоруңуз болсо, бизге чалыңыз же WhatsApp аркылуу жазыңыз.</p><p>🕒 <strong>Иштөө убактысы:</strong> күн сайын, 10:00–23:00</p><p>📞 <a href="tel:+996506991404">+996 506 991 404</a></p><p>💬 <a href="https://wa.me/996506991404" target="_blank" rel="noopener">WhatsApp ачуу</a></p><p>📍 Ош облусу, Араван району, Мангыт айыл аймагы</p><p><small>Заказдарды күн сайын 10:00дөн 23:00гө чейин кабыл алабыз.</small></p></aside>
+      <div class="form-card">
+        <h3>Себет жана заказ формасы</h3><p>Тамакты тандап, байланыш маалыматыңызды киргизиңиз.</p>
+        <div id="cart-list" class="cart-list"><div class="cart-empty">Себетиңиз азырынча бош. Менюдан тамак тандаңыз.</div></div>
+        <div class="total"><span>Алдын ала сумма</span><span id="total">0 сом</span></div><p style="font-size:13px;color:#758694;line-height:1.5;margin:0 0 14px">Форель үчүн салмакты болжол менен тандайсыз. Кафе балыкты таразага тарткандан кийин так салмагын жана акыркы баасын WhatsApp аркылуу билдирет. Сиз ырастагандан кийин гана заказ даярдалат.</p>
+        <form id="order-form">
+          <div class="field-grid">
+            <div class="field"><label for="customer">Атыңыз *</label><input id="customer" name="customer" required placeholder="Атыңызды жазыңыз"></div>
+            <div class="field"><label for="phone">Телефон номериңиз *</label><input id="phone" name="phone" required type="tel" placeholder="+996 ..." inputmode="tel"></div>
+          </div>
+          <div class="field"><label for="method">Заказды алуу жолу *</label><select id="method" name="method" required><option value="Кафеден алып кетем">Кафеден алып кетем</option><option value="Жеткирип берүү керек">Жеткирип берүү керек (алдын ала такталат)</option><option value="Кафеде жейм">Кафеде жейм</option></select></div>
+          <div class="field"><label for="address">Дарек (жеткирүү болсо)</label><input id="address" name="address" placeholder="Айыл, көчө, үй номер"></div>
+          <div class="field"><label for="notes">Кошумча каалоо</label><textarea id="notes" name="notes" placeholder="Мисалы: ачуу кошпоңуз, соус өзүнчө..."></textarea></div>
+          <div class="form-actions"><button class="btn" type="submit">WhatsApp менен заказ берүү</button><a class="btn dark" href="tel:+996506991404">📞 Чалып заказ берүү</a></div>
+          <p style="font-size:12px;color:#758694;margin-bottom:0">«WhatsApp менен заказ берүү» басылганда заказ маалыматы WhatsAppка даяр билдирүү катары ачылат. Жөнөтүүнү өзүңүз ырастайсыз.</p>
+        </form>
+      </div>
+    </div>
+  </div></section>
+</main>
+<footer><div class="wrap"><div class="foot">
+  <a class="brand" href="#home"><span class="brandmark">⚓</span><span>МОРЯК<small>КАФЕСИ</small></span></a>
+  <div><strong>Байланыш</strong><p><a href="tel:+996506991404">+996 506 991 404 — чалуу</a></p><p>🕒 Күн сайын: 10:00–23:00</p><p>Ош облусу, Араван району, Мангыт айыл аймагы</p></div>
+  <div><strong>Жакшы тамак — жакшы маанай!</strong><p>Келгениңизге рахмат 💛</p></div>
+</div><div class="copyright">© <span id="year"></span> МОРЯК кафеси. Бардык укуктар корголгон.</div></div></footer>
+<div class="toast" id="toast"></div>
+<script>
+const MENU = [
+ {id:1,name:"Форель мангалда",cat:"Форель",price:1300,weight:"1 кг (чийки балыктын салмагы)",desc:"Мангалда бышкан форель, лимон жана көк чөп менен. Баасы 1 кг үчүн 1 300 сом.",tag:"Фирмалык"},
+ {id:2,name:"Форель куурулган",cat:"Форель",price:1250,weight:"1 кг (чийки балыктын салмагы)",desc:"Кытырак кабыктуу куурулган форель. Баасы 1 кг үчүн 1 250 сомдон.",tag:""},
+ {id:3,name:"Форель стейк мангалда",cat:"Форель",price:450,weight:"320 г",desc:"Мангалда бышкан ширелүү форель стейки.",tag:"Хит"},
+ {id:4,name:"Форель стейк куурулган",cat:"Форель",price:450,weight:"320 г",desc:"Куурулган форель стейки, лимон менен.",tag:""},
+ {id:35,name:"Форель ассорти",cat:"Форель",price:1300,weight:"1 кг",desc:"Форель ассорти. Баасы 1 кг үчүн, так салмак таразада аныкталат.",tag:""},
+ {id:5,name:"Форель сет «МОРЯК»",cat:"Сет",price:2800,weight:"1 чоң табак",desc:"Пицца, мангалдагы форель стейк, куурулган форель стейк, күрүч, картошка по-деревенски жана үч соус.",tag:"Фирмалык сет"},
+ {id:6,name:"Суу уха",cat:"Шорпо",price:180,weight:"1 табак",desc:"Балыктын даамы кошулган ысык шорпо.",tag:""},
+ {id:7,name:"Суу том ям",cat:"Шорпо",price:300,weight:"1 табак",desc:"Ачуу-кычкыл даамдагы азия шорпосу.",tag:""},
+ {id:8,name:"Пицца пепперони",cat:"Пицца",price:350,weight:"30 см",desc:"Пепперони колбасасы, сыр жана томат соусу.",tag:"Популярдуу"},
+ {id:9,name:"Фирмалык пицца «МОРЯК»",cat:"Пицца",price:450,weight:"30 см",desc:"Мангалда бышкан форель, сыр жана фирмалык соус.",tag:"Фирмалык"},
+ {id:10,name:"Пицца «Төрт сыр»",cat:"Пицца",price:400,weight:"30 см",desc:"Төрт түрдүү сыр менен жумшак даам.",tag:""},
+ {id:11,name:"Пицца тоок эти менен",cat:"Пицца",price:350,weight:"30 см",desc:"Тоок эти, козу карын, ак соус жана сыр.",tag:"Ак соус"},
+ {id:12,name:"Филадельфия Люкс",cat:"Суши",price:380,weight:"8 даана",desc:"Крем-сыр жана балык кошулган классикалык ролл.",tag:""},
+ {id:13,name:"Запечёнгөн ролл — тоок эти",cat:"Суши",price:300,weight:"8 даана",desc:"Запечённый ролл, тоок эти менен.",tag:"Запечённый"},
+ {id:14,name:"Запечёнгөн ролл — форель",cat:"Суши",price:350,weight:"8 даана",desc:"Запечённый ролл, форель менен.",tag:"Запечённый"},
+ {id:15,name:"Куурулган ролл — тоок эти",cat:"Суши",price:300,weight:"8 даана",desc:"Кытырак кабыктуу жаренный ролл, тоок эти менен.",tag:"Кытырак"},
+ {id:16,name:"Куурулган ролл — форель",cat:"Суши",price:350,weight:"8 даана",desc:"Кытырак кабыктуу жаренный ролл, форель менен.",tag:"Кытырак"},
+ {id:17,name:"Фирмалык ролл «МОРЯК»",cat:"Суши",price:400,weight:"8 даана",desc:"Ичинде крем-сыр, бадыраң жана суши күрүчү; сыртында ак кунжут. Үстүндө манго-чили соусу менен аралашкан форель кубиктери.",tag:"Фирмалык"},
+ {id:18,name:"Шаурма классикалык",cat:"Шаурма",price:180,weight:"1 даана",desc:"Тоок эти, жашылча жана фирмалык соус.",tag:""},
+ {id:19,name:"Шаурма сыр менен",cat:"Шаурма",price:220,weight:"1 даана",desc:"Тоок эти, сыр, жашылча жана соус.",tag:""},
+ {id:20,name:"Фирмалык шаурма «МОРЯК»",cat:"Шаурма",price:250,weight:"1 даана",desc:"Тоок эти жана фирмалык соус менен өзгөчө шаурма.",tag:"Фирмалык"},
+ {id:33,name:"Бургер тоок эти менен",cat:"Бургер",price:200,weight:"1 даана",desc:"Тоок эти, жашылча, сыр жана фирмалык соус менен.",tag:""},
+ {id:34,name:"Бургер уй эти менен",cat:"Бургер",price:250,weight:"1 даана",desc:"Уй эти, жашылча, сыр жана фирмалык соус менен.",tag:"Фирмалык соус"},
+ {id:21,name:"Картошка фри",cat:"Гарнир",price:120,weight:"1 порция",desc:"Кытырак картошка фри.",tag:""},
+ {id:22,name:"Картошка по-деревенски",cat:"Гарнир",price:150,weight:"1 порция",desc:"Жыпар жыттуу айылча картошка.",tag:""},
+ {id:23,name:"Күрүч",cat:"Гарнир",price:80,weight:"1 порция",desc:"Жеңил гарнир катары берилет.",tag:""},
+ {id:24,name:"Цезарь салат тоок эти менен",cat:"Салат",price:320,weight:"1 порция",desc:"Цезарь салаты тоок эти менен.",tag:""},
+ {id:25,name:"Цезарь салат форель менен",cat:"Салат",price:350,weight:"1 порция",desc:"Цезарь салаты форель менен.",tag:"Фирмалык"},
+ {id:26,name:"Ачуу салат",cat:"Салат",price:330,weight:"1 порция",desc:"Ачуу даамдагы салат.",tag:""},
+ {id:36,name:"Грек салаты",cat:"Салат",price:310,weight:"1 порция",desc:"Жашылча жана сыр кошулган грек салаты.",tag:""},
+ {id:27,name:"Чай",cat:"Суусундук",price:30,weight:"1 чайнек/порция",desc:"Ысык чай.",tag:""},
+ {id:28,name:"Кофе",cat:"Суусундук",price:80,weight:"1 чыны",desc:"Жыпар жыттуу кофе.",tag:""},
+ {id:29,name:"Компот",cat:"Суусундук",price:70,weight:"1 стакан",desc:"Үй компоту.",tag:""},
+ {id:30,name:"Суу 0,5 л",cat:"Суусундук",price:50,weight:"0,5 л",desc:"Ичүүчү суу.",tag:""},
+ {id:31,name:"Газдалган суусундук",cat:"Суусундук",price:110,weight:"1 бөтөлкө",desc:"Муздак газдалган суусундук.",tag:""},
+ {id:32,name:"Шире",cat:"Суусундук",price:100,weight:"1 порция",desc:"Мөмө ширеси.",tag:""}
+];
+// Admin prototype: same-browser menu edits. For customer-wide live sync, connect a cloud database.
+try { const savedMenu = localStorage.getItem('moryak_menu_v1'); if(savedMenu){ const parsed=JSON.parse(savedMenu); if(Array.isArray(parsed)&&parsed.length){ MENU.splice(0,MENU.length,...parsed); } } } catch(e){}
+const cart = {};
+const grid = document.getElementById('menu-grid');
+const cartList = document.getElementById('cart-list');
+const totalEl = document.getElementById('total');
+const countEl = document.getElementById('cart-count');
+const toastEl = document.getElementById('toast');
+let activeCategory = 'Баары';
+function money(n){return n.toLocaleString('ru-RU')+' сом'}
+function toast(msg){toastEl.textContent=msg;toastEl.style.display='block';setTimeout(()=>toastEl.style.display='none',2400)}
+function renderMenu(){
+ const items = MENU.filter(x=>activeCategory==='Баары'||x.cat===activeCategory);
+ grid.innerHTML=items.map(x=>`<article class="food-card"><div class="food-body"><div class="food-title-row"><h3>${x.name}</h3><span class="price">${(x.id===33||x.id===34)?'Баасы такталат':money(x.price)}</span></div><p class="desc">${x.desc}</p><div class="add-row"><span class="weight">${x.weight}</span>${(x.id===33||x.id===34)?'<button class="add" disabled style="opacity:.55;cursor:not-allowed">Баасы такталат</button>':`<button class="add" onclick="addToCart(${x.id})">＋ Себетке</button>`}</div></div></article>`).join('');
+}
+function isWeightFish(id){return id===1||id===2}
+function addToCart(id){
+ const item=MENU.find(x=>x.id===id);
+ if(isWeightFish(id)){
+   const raw=prompt(`«${item.name}» үчүн канча кг болжолдуу заказ бересиз?\nМисалы: 2 же 1.234 (1 кг 234 г)`, '2');
+   if(raw===null)return;
+   const kg=Number(String(raw).replace(',','.'));
+   if(!Number.isFinite(kg)||kg<=0||kg>20){toast('Салмакты 0.001–20 кг аралыгында киргизиңиз.');return}
+   cart[id]=Math.round(kg*1000)/1000;
+ } else {cart[id]=(cart[id]||0)+1}
+ renderCart();toast('Себетке кошулду!')
+}
+function changeQty(id,delta){
+ const step=isWeightFish(id)?0.001:1;
+ cart[id]=Math.round(((cart[id]||0)+delta*step)*1000)/1000;
+ if(cart[id]<=0)delete cart[id];
+ renderCart()
+}
+function renderCart(){
+ const entries=MENU.filter(x=>cart[x.id]);
+ const count=entries.reduce((s,x)=>s+(isWeightFish(x.id)?1:cart[x.id]),0);
+ const total=entries.reduce((s,x)=>s+x.price*cart[x.id],0);
+ countEl.textContent=Math.round(count*10)/10;
+ totalEl.textContent=money(total);
+ if(!entries.length){cartList.innerHTML='<div class="cart-empty">Себетиңиз азырынча бош. Менюдан тамак тандаңыз.</div>';return}
+ cartList.innerHTML=entries.map(x=>`<div class="cart-item"><div><strong>${x.name}</strong><small>${isWeightFish(x.id)?`${cart[x.id].toFixed(3)} кг болжолдуу × ${money(x.price)} / кг = ${money(x.price*cart[x.id])}`:`${money(x.price)} × ${cart[x.id]} = ${money(x.price*cart[x.id])}`}</small></div><div class="qty"><button type="button" aria-label="Азайтуу" onclick="changeQty(${x.id},-1)">−</button><b>${isWeightFish(x.id)?cart[x.id].toFixed(1)+' кг':cart[x.id]}</b><button type="button" aria-label="Көбөйтүү" onclick="changeQty(${x.id},1)">+</button></div></div>`).join('');
+}
+document.querySelectorAll('.cat').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.cat').forEach(b=>b.classList.remove('active'));btn.classList.add('active');activeCategory=btn.dataset.cat;renderMenu()}));
+document.getElementById('order-form').addEventListener('submit',e=>{
+ e.preventDefault();
+ const entries=MENU.filter(x=>cart[x.id]);
+ if(!entries.length){toast('Адегенде менюдан тамак тандаңыз.');document.getElementById('menu').scrollIntoView({behavior:'smooth'});return}
+ const f=new FormData(e.target);
+ const total=entries.reduce((s,x)=>s+x.price*cart[x.id],0);
+ const orderRecord={id:'MY-'+Date.now().toString().slice(-7),createdAt:new Date().toISOString(),status:'Жаңы',customer:f.get('customer'),phone:f.get('phone'),method:f.get('method'),address:f.get('address'),notes:f.get('notes'),items:entries.map(x=>({id:x.id,name:x.name,qty:cart[x.id],price:x.price,weightFish:isWeightFish(x.id)})),total};
+ try{const old=JSON.parse(localStorage.getItem('moryak_orders_v1')||'[]');old.unshift(orderRecord);localStorage.setItem('moryak_orders_v1',JSON.stringify(old));}catch(err){}
+ const lines=entries.map(x=>isWeightFish(x.id)
+   ? `• ${x.name} — ${cart[x.id].toFixed(3)} кг болжолдуу × ${x.price} сом/кг = ${(x.price*cart[x.id]).toLocaleString('ru-RU',{maximumFractionDigits:2})} сом (так салмакты кафе ырастайт)`
+   : `• ${x.name} — ${cart[x.id]} даана × ${x.price} сом = ${x.price*cart[x.id]} сом`);
+ const msg=[
+ 'Саламатсызбы! «МОРЯК» кафесине заказ бергим келет.',
+ '',
+ 'Заказ:',
+ ...lines,
+ '',
+ `Алдын ала сумма: ${total.toLocaleString('ru-RU',{maximumFractionDigits:2})} сом`,
+ 'ЭСКЕРТҮҮ: Форельдин акыркы салмагы таразада аныкталат. Так салмак жана акыркы баа WhatsApp аркылуу макулдашылат. Мен ырастагандан кийин заказды даярдаңыз.',
+ `Аты: ${f.get('customer')}`,
+ `Телефон: ${f.get('phone')}`,
+ `Алуу жолу: ${f.get('method')}`,
+ `Дарек: ${f.get('address')||'Көрсөтүлгөн жок'}`,
+ `Кошумча каалоо: ${f.get('notes')||'Жок'}`
+ ].join('\n');
+ window.open('https://wa.me/996506991404?text='+encodeURIComponent(msg),'_blank','noopener');
+});
+document.getElementById('year').textContent=new Date().getFullYear();
+renderMenu();renderCart();
+</script>
+</body>
+</html>
